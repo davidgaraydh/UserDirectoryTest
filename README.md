@@ -1,2 +1,2 @@
 # UserDirectoryTest
-Technical test project focused on implementing a basic user directory. It includes functionalities for listing, creating, and managing user information.
+Proyecto de prueba técnica enfocado en implementar un directorio básico de usuarios. Incluye funcionalidades para listar, crear y gestionar información de usuarios.
