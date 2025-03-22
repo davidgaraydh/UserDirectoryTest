@@ -1,0 +1,89 @@
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h2 class="display-5 fw-semibold">
+      <i class="bi bi-card-list me-2"></i> User Directory
+    </h2>
+    <p class="text-muted">Manage your users with full CRUD operations</p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <button class="btn btn-success" (click)="openModal()">
+        <i class="bi bi-plus-circle me-1"></i> Add User
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Search users..."
+          [(ngModel)]="searchQuery"
+          (ngModelChange)="searchUsers()"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle text-center shadow-sm">
+      <thead class="table-primary">
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th style="width: 120px;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.age }}</td>
+          <td>
+            <button class="btn btn-sm btn-outline-secondary me-1" title="View" (click)="viewDetails(user)">
+              <i class="bi bi-eye"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-primary me-1" title="Edit" (click)="editUser(user)">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-danger" title="Delete"  (click)="askToDelete(user.id)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-add-user-modal 
+    *ngIf="showModal" 
+    (closeModal)="closeModal()" 
+    (userAdded)="addUser($event)">
+  </app-add-user-modal>
+
+  <app-user-detail-modal 
+    *ngIf="selectedUser" 
+    [user]="selectedUser" 
+    (closeModal)="selectedUser = null">
+  </app-user-detail-modal>
+
+  <app-edit-user-modal 
+    *ngIf="editUserTarget" 
+    [user]="editUserTarget" 
+    (closeModal)="editUserTarget = null"
+    (userUpdated)="onUserUpdated($event)">
+  </app-edit-user-modal>
+
+  <app-confirm-modal 
+  *ngIf="userIdToDelete !== null" 
+  (onConfirm)="confirmDelete()" 
+  (onCancel)="userIdToDelete = null">
+</app-confirm-modal>
+
+</div>

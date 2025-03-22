@@ -1,0 +1,23 @@
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+
+  .modal-header {
+    font-size: 1.25rem;
+  }
+}
+
+.info-item {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}

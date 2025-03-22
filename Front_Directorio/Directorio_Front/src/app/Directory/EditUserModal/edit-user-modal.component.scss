@@ -1,0 +1,23 @@
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+
+  .modal-header {
+    font-size: 1.25rem;
+  }
+
+  .modal-footer {
+    button {
+      min-width: 120px;
+    }
+  }
+}
+
+.form-label {
+  margin-bottom: 4px;
+}

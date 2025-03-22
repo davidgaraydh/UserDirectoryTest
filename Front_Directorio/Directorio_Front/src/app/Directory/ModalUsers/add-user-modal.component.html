@@ -1,0 +1,52 @@
+<div class="modal fade show d-block" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg border-0">
+      
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title"><i class="bi bi-person-plus-fill"></i> Add New User</h5>
+        <button type="button" class="btn-close btn-close-white" (click)="closeModal.emit()" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Name</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="newUser.name" placeholder="Enter full name">
+          </div>
+        
+          <div class="mb-3">
+            <label class="form-label fw-bold">Address</label>
+            <input type="text" name="address" class="form-control" [(ngModel)]="newUser.address" placeholder="Enter address">
+          </div>
+        
+          <div class="mb-3">
+            <label class="form-label fw-bold">Phone</label>
+            <input type="text" name="phone" class="form-control" [(ngModel)]="newUser.phone" placeholder="Enter phone number">
+          </div>
+        
+          <div class="mb-3">
+            <label class="form-label fw-bold">Email</label>
+            <input type="email" name="email" class="form-control" [(ngModel)]="newUser.email" placeholder="Enter email">
+          </div>
+        
+          <div class="mb-3">
+            <label class="form-label fw-bold">Age</label>
+            <input type="number" name="age" class="form-control" [(ngModel)]="newUser.age" min="1" placeholder="Enter age">
+          </div>
+        </form>        
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal.emit()">
+          <i class="bi bi-x-circle"></i> Cancel
+        </button>
+        <button type="button" class="btn btn-success" (click)="saveUser()">
+          <i class="bi bi-check-circle"></i> Save
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop fade show"></div>
